@@ -1,8 +1,288 @@
-* {
+@charset "UTF-8";
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd, hr, ul, ol, td, input, option, textarea {
   margin: 0;
   padding: 0;
 }
 
 body {
+  font-family: "微软雅黑";
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border: none;
+}
+
+body {
   background: #f5f5f5;
+}
+
+/*header*/
+#header {
+  width: 100%;
+  height: 260px;
+  background: pink;
+}
+
+#header .topBanner {
+  width: 100%;
+  height: 120px;
+  left: 0;
+  top: 0;
+  background: #fd4f37;
+}
+
+#header .topBanner a {
+  display: block;
+  top: 0;
+  width: 1240px;
+  height: 100%;
+  background: url("../img/top-banner.png") no-repeat center;
+  margin: 0 auto;
+  background-size: 100% 100%;
+}
+
+#header .nav {
+  width: 100%;
+  height: 40px;
+  background: #333333;
+}
+
+#header .nav a {
+  display: inline-block;
+  color: #a4b0b0;
+  line-height: 40px;
+}
+
+#header .nav a:hover {
+  color: #ffffff;
+}
+
+#header .nav .nav-left {
+  width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+  font-size: 12px;
+  background: #333333;
+}
+
+#header .nav .nav-left .sep {
+  margin: 0 0.3em;
+  color: #42423c;
+}
+
+#header .nav .nav-left a {
+  position: relative;
+}
+
+#header .nav .nav-left .dl span {
+  position: absolute;
+  width: 142px;
+  height: 0px;
+  transition: all 1s;
+  bottom: 0px;
+  left: -43px;
+  background-color: white;
+  text-align: center;
+  color: black;
+  font-size: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px #aaa;
+}
+
+#header .nav .nav-left .dl span img {
+  width: 90px;
+  height: 90px;
+  display: block;
+  margin: 26px auto;
+  margin-bottom: 18px;
+  background-color: pink;
+}
+
+#header .nav .nav-left .dl::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  display: none;
+  border: 8px solid transparent;
+  border-bottom-color: white;
+  left: 18px;
+  bottom: 0;
+}
+
+#header .nav .nav-left .dl:hover::before {
+  display: block;
+}
+
+#header .nav .nav-left .dl:hover span {
+  width: 142px;
+  height: 170px;
+  bottom: -170px;
+}
+
+#header .nav .user {
+  float: right;
+}
+
+#header .nav .user a {
+  padding: 0 5px;
+}
+
+#header .nav .cart {
+  width: 120px;
+  height: 40px;
+  float: right;
+  color: #a4b0b0;
+  line-height: 40px;
+  margin-left: 15px;
+  text-align: center;
+  background: #424242;
+  position: relative;
+}
+
+#header .nav .cart .iconfont {
+  display: inline-block;
+  font-size: 20px;
+  position: relative;
+}
+
+#header .nav .cart a {
+  width: 100%;
+  height: 100%;
+}
+
+#header .nav .cart .cart-menu {
+  position: absolute;
+  width: 316px;
+  height: 0px;
+  background: blue;
+  left: -195px;
+  top: 40px;
+  transition: all 1s;
+  overflow: hidden;
+}
+
+#header .nav .cart .cart-menu ul {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -45px;
+  margin-top: -20px;
+}
+
+#header .nav .cart .cart-menu ul li {
+  width: 10px;
+  height: 20px;
+  background-color: orange;
+  float: left;
+  margin: 10px;
+  list-style: none;
+  transform-origin: center bottom;
+  animation: ss 1s infinite linear;
+}
+
+#header .nav .cart .cart-menu ul li:nth-child(1) {
+  animation-delay: 0s;
+}
+
+#header .nav .cart .cart-menu ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+#header .nav .cart .cart-menu ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes ss {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(2);
+    background-color: #2ecc71;
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+#header .nav .cart:hover a {
+  color: orange;
+  background: white;
+}
+
+#header .nav .cart:hover .cart-menu {
+  width: 316px;
+  height: 100px;
+}
+
+#header .nav-menu {
+  width: 100%;
+  height: 100px;
+  background: white;
+}
+
+#header .nav-menu .nav-menu-con {
+  width: 1240px;
+  height: 100%;
+  background: skyblue;
+  margin: 0 auto;
+  position: relative;
+}
+
+#header .nav-menu .nav-menu-con .logo {
+  position: absolute;
+  top: 22px;
+  width: 55px;
+  height: 55px;
+  background: #ff6700;
+  overflow: hidden;
+}
+
+#header .nav-menu .nav-menu-con .logo::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("../img/mi-logo.png") no-repeat center;
+  left: 0;
+  transition: all .3s;
+  opacity: 1;
+}
+
+#header .nav-menu .nav-menu-con .logo::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("../img/mi-home.png") no-repeat center;
+  left: -55px;
+  transition: all .3s;
+  opacity: 0;
+}
+
+#header .nav-menu .nav-menu-con .logo:hover::before {
+  left: 55px;
+  opacity: 0;
+}
+
+#header .nav-menu .nav-menu-con .logo:hover::after {
+  left: 0;
+  opacity: 1;
+}
+
+#header .nav-menu .nav-menu-con .con-list {
+  width: 943px;
+  height: 100px;
+  padding-left: 167px;
+  float: left;
+  background-color: slateblue;
 }
