@@ -59,6 +59,7 @@ body{
                     font-size: 14px;
                     overflow: hidden;
                     box-shadow: 0 1px 5px #aaa;
+                    z-index: 1;
                     img{
                         @include size(90px,90px);
                         display: block;
@@ -119,6 +120,7 @@ body{
                 top: 40px;
                 transition: all 1s;
                 overflow: hidden;
+                z-index: 1;
                 ul{
                     position: absolute;
                     left: 50%; top: 50%; 
@@ -172,6 +174,7 @@ body{
     .nav-menu{
         @include size(100%,100px);
         background: white;
+        position: relative;
         .nav-menu-con{
             @include size(1240px,100%);
             background: skyblue;
@@ -211,11 +214,119 @@ body{
                 opacity: 1;
             }
             .con-list{
-                width: 943px;
-                height: 100px;
+                @include size(943px,88px);
                 padding-left: 167px;
-                float: left;
-                background-color: slateblue;
+                padding-top: 12px;
+                position: absolute;
+                left: 55px;
+                li{
+                    float: left;
+                    a{
+                        display: block;
+                        padding: 26px 10px 38px;
+                        transition: all .2s;
+                        color: #333;
+                    }
+                    a:hover{
+                        color: #ff6700;
+                    }
+                }
+            }
+            .search{
+                width: 296px;
+                margin-top: 25px;
+                position: absolute;
+                right: 0;
+                form{
+                    overflow: hidden;
+                    display: inline-block;
+                }
+                input{
+                    outline: none;
+                    float: right;
+                }
+                .search-txt{
+                    @include size(223px,50px);
+                    box-sizing:border-box;
+                    font-size: 14px;
+                    text-indent: 8px;
+                    border: 1px solid #e0e0e0;
+                }
+                form:hover{
+                    .search-txt{
+                        border:1px solid #b0b0b0;
+                    }
+                    .search-btn{
+                        border:1px solid #b0b0b0;
+                        border-left: 0;
+                    }
+                }
+                .search-btn{
+                    cursor: pointer;
+                    @include size(52px,50px);
+                    float: right;
+                    background: white;
+                    position: relative;
+                    border: 1px solid #e0e0e0;
+                    border-left: 0;
+                    box-sizing: border-box;
+                    transition: all .3s;
+                    .search-dBtn{
+                        border: 0;
+                    }
+                    input{
+                        text-indent: -999px;
+                    }
+                    span{
+                        position: absolute;
+                        left: 37%;
+                        top: 35%;
+                        margin: auto;
+                        color: #616161;
+                    }
+                }
+                .search-btn:hover{
+                    span{
+                        color: white;
+                    }
+                    background: #ff6700;
+                }
+            }
+        }
+        .nav-menu-list{
+            width: 100%;
+            height: 287px;
+            position: absolute;
+            top: 100px;
+            display: none;
+            background-color:pink;
+            .list-content{
+                width: 1240px;
+                padding-top: 46px;
+                height: calc(100% - 46px);
+                margin: auto;
+                background: blue;
+                ul{
+                    height: 100%;
+                    li{
+                        position: relative;
+                        float: left;
+                        width: 180px;
+                        height: calc(100% - 46px);
+                        padding: 35px 12px 0;
+                        text-align: center;
+                        background-color: red;
+                    }
+                    .line{
+                        float: left;
+                        width: 3px;
+                        padding: 0;
+                        position: relative;
+                        top: 35px;
+                        height: 120px;
+                        background: black;
+                    }
+                }
             }
         }
     }

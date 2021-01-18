@@ -95,6 +95,7 @@ body {
   font-size: 14px;
   overflow: hidden;
   box-shadow: 0 1px 5px #aaa;
+  z-index: 1;
 }
 
 #header .nav .nav-left .dl span img {
@@ -168,6 +169,7 @@ body {
   top: 40px;
   transition: all 1s;
   overflow: hidden;
+  z-index: 1;
 }
 
 #header .nav .cart .cart-menu ul {
@@ -228,6 +230,7 @@ body {
   width: 100%;
   height: 100px;
   background: white;
+  position: relative;
 }
 
 #header .nav-menu .nav-menu-con {
@@ -281,8 +284,137 @@ body {
 
 #header .nav-menu .nav-menu-con .con-list {
   width: 943px;
-  height: 100px;
+  height: 88px;
   padding-left: 167px;
+  padding-top: 12px;
+  position: absolute;
+  left: 55px;
+}
+
+#header .nav-menu .nav-menu-con .con-list li {
   float: left;
-  background-color: slateblue;
+}
+
+#header .nav-menu .nav-menu-con .con-list li a {
+  display: block;
+  padding: 26px 10px 38px;
+  transition: all .2s;
+  color: #333;
+}
+
+#header .nav-menu .nav-menu-con .con-list li a:hover {
+  color: #ff6700;
+}
+
+#header .nav-menu .nav-menu-con .search {
+  width: 296px;
+  margin-top: 25px;
+  position: absolute;
+  right: 0;
+}
+
+#header .nav-menu .nav-menu-con .search form {
+  overflow: hidden;
+  display: inline-block;
+}
+
+#header .nav-menu .nav-menu-con .search input {
+  outline: none;
+  float: right;
+}
+
+#header .nav-menu .nav-menu-con .search .search-txt {
+  width: 223px;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-indent: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+#header .nav-menu .nav-menu-con .search form:hover .search-txt {
+  border: 1px solid #b0b0b0;
+}
+
+#header .nav-menu .nav-menu-con .search form:hover .search-btn {
+  border: 1px solid #b0b0b0;
+  border-left: 0;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn {
+  cursor: pointer;
+  width: 52px;
+  height: 50px;
+  float: right;
+  background: white;
+  position: relative;
+  border: 1px solid #e0e0e0;
+  border-left: 0;
+  box-sizing: border-box;
+  transition: all .3s;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn .search-dBtn {
+  border: 0;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn input {
+  text-indent: -999px;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn span {
+  position: absolute;
+  left: 37%;
+  top: 35%;
+  margin: auto;
+  color: #616161;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn:hover {
+  background: #ff6700;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn:hover span {
+  color: white;
+}
+
+#header .nav-menu .nav-menu-list {
+  width: 100%;
+  height: 287px;
+  position: absolute;
+  top: 100px;
+  display: none;
+  background-color: pink;
+}
+
+#header .nav-menu .nav-menu-list .list-content {
+  width: 1240px;
+  padding-top: 46px;
+  height: calc(100% - 46px);
+  margin: auto;
+  background: blue;
+}
+
+#header .nav-menu .nav-menu-list .list-content ul {
+  height: 100%;
+}
+
+#header .nav-menu .nav-menu-list .list-content ul li {
+  position: relative;
+  float: left;
+  width: 180px;
+  height: calc(100% - 46px);
+  padding: 35px 12px 0;
+  text-align: center;
+  background-color: red;
+}
+
+#header .nav-menu .nav-menu-list .list-content ul .line {
+  float: left;
+  width: 3px;
+  padding: 0;
+  position: relative;
+  top: 35px;
+  height: 120px;
+  background: black;
 }
