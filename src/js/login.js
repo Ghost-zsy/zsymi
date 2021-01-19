@@ -3,50 +3,49 @@ class Login{
         this.user = $("#username");
         this.psd  = $("#psd");
         this.btn = $("#btn");
-        this.arr = [false,false];
+        this.flag = false;
+        this.list = $(".tablist");
+        this.list2 = $(".tablist2");
         this.confirm = $("#confirm");
+        this.login_tab = $(".login-main-tab a");
         this.add();
     }
     add(){
         let that = this;
-        this.user.blur(function(){
-            let str= $(this).val();
-            let reg = /^\w+$/i;
-            if(reg.test(str)){
-                that.arr[0] = true;
-                $(this).css("border","2px solid #32ff7e");
-            }else{
-                that.arr[0] = false;
-                $(this).css("border","2px solid orange");
-            }
-        })
-        this.psd.blur(function(){
-            let str= $(this).val();
-            let reg = /^\w{6,18}$/;
-            if(reg.test(str)){
-                that.arr[1] = true;
-                $(this).css("border","2px solid #32ff7e");
-            }else{
-                that.arr[1] = false;
-                $(this).css("border","2px solid orange");
-            }
+        this.login_tab.get(0).onclick = function(){
+            that.login_tab.get(1).style.color = "";
+            this.style.color = "#ff9f1a";
+            that.list.css("display","block")
+            that.list2.css("display","none")
+        }
+        this.login_tab.get(1).onclick = function(){
+            that.login_tab.get(0).style.color = "";
+            this.style.color = "#ff9f1a";
+            that.list2.css("display","flex")
+            that.list.css("display","none")
+        }
+        this.user.keyup(function(){
+            that.user.css("border","2px solid #666");
         })
         this.btn.click(function(){
-            if(that.arr.indexOf(false) === -1){
-                let cookie_str = gj.getCookie("zsy") ? gj.getCookie("zsy") : "";
-                let cookie_obj = gj.obj(cookie_str);
-                let use = that.user.val();
-                let pd = that.psd.val();
-                if(use in cookie_obj){
-                    if(pd === cookie_obj[use]){
-                        alert("登录成功");
-                        location.href = "../index.html"
-                    }else{
-                        alert("密码不正确");
-                    }
+            let cookie_str = gj.getCookie("zsy") ? gj.getCookie("zsy") : "";
+            let cookie_obj = gj.obj(cookie_str);
+            let use = that.user.val();
+            let pd = that.psd.val();
+            if(use in cookie_obj){
+                if(pd === cookie_obj[use]){
+                    that.flag = true;
+                    alert("登录成功");
+                    location.href = "../index.html"
+                }else{
+                    that.flag = false;
+                    that.user.css("border","2px solid orange");
+                    alert("用户或者密码错误");
                 }
-            }else{
-                alert("该用户不存在");
+            }
+            if(that.flag == false){
+                that.user.css("border","2px solid orange");
+                alert("用户或者密码错误");
                 return;
             }
         })

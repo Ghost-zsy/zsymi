@@ -1,0 +1,102 @@
+@import "public";
+.header{
+    @include size(1240px,98px);
+    margin: 0 auto;
+    .logo{
+        @include size(200px,100%);
+        a{
+            display: block;
+            @include size(100%,100%);
+            background : url("../img/mistore_logo.png");
+        }
+        
+    }
+}
+.banner{
+    @include size(100%,558px);
+    position: relative;
+    background: url(../img/redmi10x.jpg) center;
+    .big{
+        display: block;
+        @include size(100%,100%);
+    }
+    .login-main{
+        width: 410px;
+        min-height: 522px;
+        position: absolute;
+        right: 139px;
+        top: 36px;
+        z-index: 1;
+        background: white;
+        input{
+            width: 80%;
+            height: 22px;
+            padding: 13px 16px 13px 14px;
+            display: block;
+            margin: 10px auto;
+            outline: none;
+        }
+        .login-main-tab{
+            padding: 27px 0 24px;
+            text-align: center;
+            font-size: 24px;
+            color: #666;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            span{
+                width: 2px;
+                height: 32px;
+                background: #e0e0e0;
+            }
+            a{
+                color: #666;
+            }
+            a:hover{
+                color : orange;
+            }
+        }
+        #btn{
+            background-color: #ff6700;
+            width: 362px;
+            height: 50px;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .tablist{
+            p{
+                text-align: center;
+            }
+        }
+        .tablist2{
+            @include size(100%,100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+            .box{
+                @include size(200px,200px);
+                background: red;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.footer{
+    text-align: center;
+    .lang-select-list{
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        li{
+            a{
+                color: black;
+            }
+            float: left;
+        }
+    }
+}

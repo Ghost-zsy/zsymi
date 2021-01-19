@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/login.min.css">
 </head>
+
 <body>
-    <h1>注册</h1>
-    <input type="text" id="username">
-    <input type="password" id="psd">
-    <input type="button" value="注册" id="btn">
+    <div class="header">
+        <div class="logo">
+            <a href="../index.html"></a>
+        </div>
+    </div>
+    <div class="banner">
+        <a href="#" class="big"></a>
+        <div class="login-main">
+            <div class="login-main-tab">
+                <a href="javascript:;">账号登录</a>
+                <span></span>
+                <a href="javascript:;">扫码登录</a>
+            </div>
+            <div class="tablist">
+                <div class="tabcon">
+                    <input type="text" id="username" placeholder="邮箱/手机号码/小米ID">
+                    <input type="password" id="psd" placeholder="密码">
+                    <input type="button" value="登录" id="btn">
+                    <p><a href="./register.html">注册</a></p>
+                </div>
+            </div>
+            <div class="tablist2">
+                <div class="box">二维码</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="nf-link-area clearfix">
+            <ul class="lang-select-list">
+                <li><a href="javascript:void(0)">简体</a>|</li>
+                <li><a href="#">繁体</a>|</li>
+                <li><a href="#">English</a>|</li>
+                <li><a href="#" target="_blank">常见问题</a>|</li>
+                <li><a id="msg-privacy" href="#" target="_blank">隐私政策</a></li>
+            </ul>
+        </div>
+        <p class="nf-intro">小米公司版权所有-京ICP备10046444-
+        <a target="_blank"href="#"><span>
+        <img src="https://account.xiaomi.com/static/res/9204d06/account-static/respassport/acc-2014/img/ghs.png"></span>京公网安备11010802020134号</a>-京ICP证110507号
+        </p>
+    </div>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
     <script src="../js/gj.js"></script>
     <script src="../js/login.js"></script>
 </body>
+
 </html>
