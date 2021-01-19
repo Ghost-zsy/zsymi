@@ -29,7 +29,7 @@ function fnCss(){
     .pipe(dest("./src/css"))
 }
 function fnJS(){
-    return src("./src/*.js")
+    return src("./src/js/*.js")
     .pipe(babel({
         presets: ['@babel/env']
     }))
@@ -54,7 +54,7 @@ function fnImg(){
 function fnWatch(){
     watch("./src/index.html",CopyIndex)
     watch("./src/sass/*.scss",fnCss)
-    watch("./src/*.js",fnJS)
+    watch("./src/js/*.js",fnJS)
     watch("./src/page/*.html",fnPage)
     watch("./src/img/*",fnImg)
 }
