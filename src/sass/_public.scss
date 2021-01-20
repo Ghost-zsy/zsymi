@@ -19,7 +19,343 @@ img{
     width: $a;
     height: $b;
 }
-//居中
+#header{
+    width: 100%;
+    height: 260px;
+    background: pink;
+    .topBanner{
+        @include size(100%,120px);
+        left: 0;
+        top: 0;
+        background:#fd4f37;
+        a{
+            display: block;
+            top: 0;
+            @include size(1240px,100%);
+            background:url("../img/top-banner.png") no-repeat center ;
+            margin: 0 auto;
+            background-size: 100% 100%;
+        }
+    }
+    .nav{
+        @include size(100%,40px);
+        background: #333333;
+        a{
+            display: inline-block;
+            color: #a4b0b0;
+            line-height: 40px;
+        }
+        a:hover{
+            color: #ffffff;
+        }
+        .nav-left{
+            @include size(1240px,100%);
+            margin: 0 auto;
+            font-size: 12px;
+            // background: red;
+            background: #333333;
+            .sep{
+                margin: 0 0.3em;
+                color: #42423c;
+            }
+            a{
+                position: relative;
+                // overflow: hidden;
+            }
+            .dl{
+                span{
+                    position: absolute;
+                    @include size(142px,0px);
+                    transition: all 1s;
+                    bottom: 0px;
+                    left: -43px;
+                    background-color: white;
+                    text-align: center;
+                    color: black;
+                    font-size: 14px;
+                    overflow: hidden;
+                    box-shadow: 0 1px 5px #aaa;
+                    z-index: 1;
+                    img{
+                        @include size(90px,90px);
+                        display: block;
+                        margin: 26px auto;
+                        margin-bottom: 18px;
+                        background-color: pink;
+                    }
+                }
+            }
+            .dl::before{
+                content: "";
+                position: absolute;
+                @include size(0px,0px);
+                display: none;
+                border: 8px solid transparent;
+                border-bottom-color:white;
+                left: 18px;
+                bottom: 0;
+            }
+            .dl:hover::before{
+                display: block;
+            }
+            .dl:hover{
+                span{
+                    @include size(142px,170px);
+                    bottom: -170px;
+                }
+            }
+        }
+        .user{
+            float: right;
+            a{
+                padding: 0 5px;
+            }
+        }
+        .cart{
+            @include size(120px,40px);
+            float: right;
+            color: #a4b0b0;
+            line-height: 40px;
+            margin-left: 15px;
+            text-align: center;
+            background: #424242;
+            position: relative;
+            .iconfont{
+                display: inline-block;
+                font-size: 20px;
+                position: relative; 
+            }
+            a{
+                @include size(100%,100%);
+            }
+            .cart-menu{
+                position: absolute;
+                @include size(316px,0px);
+                background: blue;
+                left: -195px;
+                top: 40px;
+                transition: all 1s;
+                overflow: hidden;
+                z-index: 1;
+                ul{
+                    position: absolute;
+                    left: 50%; top: 50%; 
+                    margin-left: -45px;
+                    margin-top: -20px;
+                    li{
+                        width: 10px;
+                        height: 20px;
+                        background-color:orange;
+                        float: left;
+                        margin: 10px;
+                        list-style: none;
+                        transform-origin: center bottom;
+                        animation: ss 1s infinite linear;
+                    }
+                    li::nth-child(1){
+                        animation-delay: 0s;
+                    }
+                    li:nth-child(2){
+                        animation-delay: 0.2s;
+                    }
+                    li:nth-child(3){
+                        animation-delay: 0.3s;
+                    }
+                    @keyframes ss{
+                        0%{
+                            transform: scaleY(1);
+                        }
+                        50%{
+                            transform: scaleY(2);
+                            background-color: #2ecc71;
+                        }
+                        100%{
+                            transform: scaleY(1);
+                        }
+                    }
+                }
+            }
+        }
+        .cart:hover{
+            a{
+                color: orange;
+                background: white;
+            }
+            
+            .cart-menu{
+                @include size(316px,100px);
+            }
+        }
+    }
+    .nav-menu{
+        @include size(100%,100px);
+        background: white;
+        position: relative;
+        .nav-menu-con{
+            @include size(1240px,100%);
+            margin: 0 auto;
+            position: relative;
+            .logo{
+                position: absolute;
+                top: 22px;
+                @include size(55px,55px);
+                background:#ff6700;
+                overflow: hidden;
+            }
+            .logo::before{
+                content: "";
+                @include size(100%,100%);
+                position: absolute;
+                background: url("../img/mi-logo.png") no-repeat center;
+                left: 0;
+                transition: all .3s;
+                opacity: 1;
+            }
+            .logo::after{
+                content: "";
+                @include size(100%,100%);
+                position: absolute;
+                background: url("../img/mi-home.png") no-repeat center;
+                left: -55px;
+                transition: all .3s;
+                opacity: 0;
+            }
+            .logo:hover::before{
+                left: 55px;
+                opacity: 0;
+            }
+            .logo:hover::after{
+                left: 0;
+                opacity: 1;
+            }
+            .con-list{
+                @include size(943px,88px);
+                padding-left: 167px;
+                padding-top: 12px;
+                position: absolute;
+                left: 55px;
+                li{
+                    float: left;
+                    a{
+                        display: block;
+                        padding: 26px 10px 38px;
+                        transition: all .2s;
+                        color: #333;
+                    }
+                    a:hover{
+                        color: #ff6700;
+                    }
+                }
+            }
+            .search{
+                width: 296px;
+                margin-top: 25px;
+                position: absolute;
+                right: 0;
+                form{
+                    overflow: hidden;
+                    display: inline-block;
+                }
+                input{
+                    outline: none;
+                    float: right;
+                }
+                .search-txt{
+                    @include size(223px,50px);
+                    box-sizing:border-box;
+                    font-size: 14px;
+                    text-indent: 8px;
+                    border: 1px solid #e0e0e0;
+                }
+                form:hover{
+                    .search-txt{
+                        border:1px solid #b0b0b0;
+                    }
+                    .search-btn{
+                        border:1px solid #b0b0b0;
+                        border-left: 0;
+                    }
+                }
+                .search-btn{
+                    cursor: pointer;
+                    @include size(52px,50px);
+                    float: right;
+                    background: white;
+                    position: relative;
+                    border: 1px solid #e0e0e0;
+                    border-left: 0;
+                    box-sizing: border-box;
+                    transition: all .3s;
+                    .search-dBtn{
+                        border: 0;
+                    }
+                    input{
+                        text-indent: -999px;
+                    }
+                    span{
+                        position: absolute;
+                        left: 37%;
+                        top: 35%;
+                        margin: auto;
+                        color: #616161;
+                    }
+                }
+                .search-btn:hover{
+                    span{
+                        color: white;
+                    }
+                    background: #ff6700;
+                }
+            }
+        }
+        .nav-menu-list{
+            width: 100%;
+            height: 0;
+            position: absolute;
+            top: 100px;
+            transition: all .7s;
+            overflow: hidden;
+            z-index: 100;
+            // display: none;
+            // border-top: 2px solid #b0b0b0;
+            background-color:white;
+            .list-content{
+                width: 1240px;
+                padding-top: 46px;
+                height: calc(100% - 46px);
+                margin: auto;
+                ul{
+                    height: 100%;
+                    li{
+                        position: relative;
+                        float: left;
+                        width: 180px;
+                        height: calc(100% - 46px);
+                        padding: 35px 12px 0;
+                        text-align: center;
+                        font-size: 12px;
+                        .price{
+                            color: #ff6700;
+                        }
+                        a{
+                            display: block;
+                            @include size(100%,100%);
+                        }
+                    }
+                    .line{
+                        float: left;
+                        width: 2px;
+                        padding: 0;
+                        position: relative;
+                        top: 48px;
+                        height: 100px;
+                        background: #b0b0b0;
+                    }
+                }
+            }
+        }
+    }
+}
 
 //常用
 //@include size(100%,100%);

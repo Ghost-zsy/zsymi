@@ -1,0 +1,44 @@
+[
+    {
+        "name" : "小米系列",
+        "src" :  "./img/tel.webp",
+        "price" : "5000元起",
+        "alt" : "小米系列"
+    },
+    {
+        "name" : "红米系列",
+        "src" :  "./img/red.webp",
+        "price" : "2000元起",
+        "alt" : "红米系列"
+    },
+    {
+        "name" : "电视大师",
+        "src" :  "./img/watch.webp",
+        "price" : "9000元",
+        "alt" : "电视大师"
+    },
+    {
+        "name" : "游戏笔记本",
+        "src" :  "./img/pc.png",
+        "price" : "7000元",
+        "alt" : "游戏笔记本"
+    },
+    {
+        "name" : "小米空调",
+        "src" :  "./img/kongtiao.webp",
+        "price" : "2399元",
+        "alt" : "小米空调"
+    },
+    {
+        "name" : "小米路由器",
+        "src" :  "./img/luyou.webp",
+        "price" : "500元",
+        "alt" : "小米路由器"
+    },
+    {
+        "name" : "小爱触屏音箱",
+        "src" :  "./img/music.jpg",
+        "price" : "400元",
+        "alt" : "小爱触屏音箱"
+    } 
+]

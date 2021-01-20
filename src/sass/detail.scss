@@ -1,0 +1,125 @@
+@import "public";
+body{
+    height: 5000px;
+}
+#ceiling{
+    @include size(100%,63px);
+    position : sticky;
+    left: 0;
+    background: red;
+    transition: all 1s;
+    font-size: 12px;
+    .ceiling-content{
+        @include size(1240px,100%);
+        background: pink;
+        margin: 0 auto;
+        vertical-align: middle;
+        a{
+            color: #757575;
+        }
+        a:hover{
+            color: sandybrown;
+        }
+        h2{
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: normal;
+        }
+        .ceiling-content-left{
+            overflow: hidden;
+            height: 100%;
+            vertical-align: middle;
+            display: inline-block;
+            li{
+                padding: 0 5px;
+                float: left;
+                margin-top: 25px;
+            }
+            li:nth-child(1){
+                // background-color: red;
+                border-left: 2px solid #757575;
+                border-right: 2px solid #757575;
+            }
+        }
+        .ceiling-content-right{
+            float: right;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            li{
+                padding: 0 5px;
+                vertical-align: middle;
+                float: right;
+                border-right: 2px solid #757575;
+            }
+            li:nth-last-child(1){
+                border-right: 0;
+            }
+        }
+    }
+}
+.content{
+    width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    .content-left{
+        width: 600px;
+        img{
+            @include size(100%,100%);
+            display: block;
+        }
+    }
+    .content-right{
+        flex: 1;
+        font-size: 14px;
+        .sale-desc{
+            color: #b0b0b0;
+            line-height: 1.5;
+            span{
+                color: #ff4a00;
+            }
+        }
+        .company-info{
+            color: #ff6700;
+        }
+        .price{
+            display: block;
+            font-size: 18px;
+            line-height: 1;
+            color: #ff6700;
+            padding: 12px 0 10px;
+        }
+        .current{
+            width: 100%;
+            ul{
+                overflow: hidden;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                li{
+                    width: calc(48% - 4px);
+                    height: 42px;
+                    line-height: 42px;
+                    margin-bottom: 5px;
+                    float: left;
+                    transition: all .5s;
+                    border: 2px solid #757575;
+                    text-align: center;
+                    a{
+                        @include size(100%,100%);
+                        display: inline-block;
+                        color: #757575;
+                    }
+                    a:hover{
+                        color: #ff6700;
+                    }
+                }
+                li:hover{
+                    border-color: #ff6700;
+                }
+            }
+            
+        }
+    }
+}

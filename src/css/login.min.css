@@ -20,6 +20,410 @@ img {
   border: none;
 }
 
+#header {
+  width: 100%;
+  height: 260px;
+  background: pink;
+}
+
+#header .topBanner {
+  width: 100%;
+  height: 120px;
+  left: 0;
+  top: 0;
+  background: #fd4f37;
+}
+
+#header .topBanner a {
+  display: block;
+  top: 0;
+  width: 1240px;
+  height: 100%;
+  background: url("../img/top-banner.png") no-repeat center;
+  margin: 0 auto;
+  background-size: 100% 100%;
+}
+
+#header .nav {
+  width: 100%;
+  height: 40px;
+  background: #333333;
+}
+
+#header .nav a {
+  display: inline-block;
+  color: #a4b0b0;
+  line-height: 40px;
+}
+
+#header .nav a:hover {
+  color: #ffffff;
+}
+
+#header .nav .nav-left {
+  width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+  font-size: 12px;
+  background: #333333;
+}
+
+#header .nav .nav-left .sep {
+  margin: 0 0.3em;
+  color: #42423c;
+}
+
+#header .nav .nav-left a {
+  position: relative;
+}
+
+#header .nav .nav-left .dl span {
+  position: absolute;
+  width: 142px;
+  height: 0px;
+  transition: all 1s;
+  bottom: 0px;
+  left: -43px;
+  background-color: white;
+  text-align: center;
+  color: black;
+  font-size: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px #aaa;
+  z-index: 1;
+}
+
+#header .nav .nav-left .dl span img {
+  width: 90px;
+  height: 90px;
+  display: block;
+  margin: 26px auto;
+  margin-bottom: 18px;
+  background-color: pink;
+}
+
+#header .nav .nav-left .dl::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  display: none;
+  border: 8px solid transparent;
+  border-bottom-color: white;
+  left: 18px;
+  bottom: 0;
+}
+
+#header .nav .nav-left .dl:hover::before {
+  display: block;
+}
+
+#header .nav .nav-left .dl:hover span {
+  width: 142px;
+  height: 170px;
+  bottom: -170px;
+}
+
+#header .nav .user {
+  float: right;
+}
+
+#header .nav .user a {
+  padding: 0 5px;
+}
+
+#header .nav .cart {
+  width: 120px;
+  height: 40px;
+  float: right;
+  color: #a4b0b0;
+  line-height: 40px;
+  margin-left: 15px;
+  text-align: center;
+  background: #424242;
+  position: relative;
+}
+
+#header .nav .cart .iconfont {
+  display: inline-block;
+  font-size: 20px;
+  position: relative;
+}
+
+#header .nav .cart a {
+  width: 100%;
+  height: 100%;
+}
+
+#header .nav .cart .cart-menu {
+  position: absolute;
+  width: 316px;
+  height: 0px;
+  background: blue;
+  left: -195px;
+  top: 40px;
+  transition: all 1s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#header .nav .cart .cart-menu ul {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -45px;
+  margin-top: -20px;
+}
+
+#header .nav .cart .cart-menu ul li {
+  width: 10px;
+  height: 20px;
+  background-color: orange;
+  float: left;
+  margin: 10px;
+  list-style: none;
+  transform-origin: center bottom;
+  animation: ss 1s infinite linear;
+}
+
+#header .nav .cart .cart-menu ul li::nth-child(1) {
+  animation-delay: 0s;
+}
+
+#header .nav .cart .cart-menu ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+#header .nav .cart .cart-menu ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes ss {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(2);
+    background-color: #2ecc71;
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+#header .nav .cart:hover a {
+  color: orange;
+  background: white;
+}
+
+#header .nav .cart:hover .cart-menu {
+  width: 316px;
+  height: 100px;
+}
+
+#header .nav-menu {
+  width: 100%;
+  height: 100px;
+  background: white;
+  position: relative;
+}
+
+#header .nav-menu .nav-menu-con {
+  width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#header .nav-menu .nav-menu-con .logo {
+  position: absolute;
+  top: 22px;
+  width: 55px;
+  height: 55px;
+  background: #ff6700;
+  overflow: hidden;
+}
+
+#header .nav-menu .nav-menu-con .logo::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("../img/mi-logo.png") no-repeat center;
+  left: 0;
+  transition: all .3s;
+  opacity: 1;
+}
+
+#header .nav-menu .nav-menu-con .logo::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("../img/mi-home.png") no-repeat center;
+  left: -55px;
+  transition: all .3s;
+  opacity: 0;
+}
+
+#header .nav-menu .nav-menu-con .logo:hover::before {
+  left: 55px;
+  opacity: 0;
+}
+
+#header .nav-menu .nav-menu-con .logo:hover::after {
+  left: 0;
+  opacity: 1;
+}
+
+#header .nav-menu .nav-menu-con .con-list {
+  width: 943px;
+  height: 88px;
+  padding-left: 167px;
+  padding-top: 12px;
+  position: absolute;
+  left: 55px;
+}
+
+#header .nav-menu .nav-menu-con .con-list li {
+  float: left;
+}
+
+#header .nav-menu .nav-menu-con .con-list li a {
+  display: block;
+  padding: 26px 10px 38px;
+  transition: all .2s;
+  color: #333;
+}
+
+#header .nav-menu .nav-menu-con .con-list li a:hover {
+  color: #ff6700;
+}
+
+#header .nav-menu .nav-menu-con .search {
+  width: 296px;
+  margin-top: 25px;
+  position: absolute;
+  right: 0;
+}
+
+#header .nav-menu .nav-menu-con .search form {
+  overflow: hidden;
+  display: inline-block;
+}
+
+#header .nav-menu .nav-menu-con .search input {
+  outline: none;
+  float: right;
+}
+
+#header .nav-menu .nav-menu-con .search .search-txt {
+  width: 223px;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-indent: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+#header .nav-menu .nav-menu-con .search form:hover .search-txt {
+  border: 1px solid #b0b0b0;
+}
+
+#header .nav-menu .nav-menu-con .search form:hover .search-btn {
+  border: 1px solid #b0b0b0;
+  border-left: 0;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn {
+  cursor: pointer;
+  width: 52px;
+  height: 50px;
+  float: right;
+  background: white;
+  position: relative;
+  border: 1px solid #e0e0e0;
+  border-left: 0;
+  box-sizing: border-box;
+  transition: all .3s;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn .search-dBtn {
+  border: 0;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn input {
+  text-indent: -999px;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn span {
+  position: absolute;
+  left: 37%;
+  top: 35%;
+  margin: auto;
+  color: #616161;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn:hover {
+  background: #ff6700;
+}
+
+#header .nav-menu .nav-menu-con .search .search-btn:hover span {
+  color: white;
+}
+
+#header .nav-menu .nav-menu-list {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 100px;
+  transition: all .7s;
+  overflow: hidden;
+  z-index: 100;
+  background-color: white;
+}
+
+#header .nav-menu .nav-menu-list .list-content {
+  width: 1240px;
+  padding-top: 46px;
+  height: calc(100% - 46px);
+  margin: auto;
+}
+
+#header .nav-menu .nav-menu-list .list-content ul {
+  height: 100%;
+}
+
+#header .nav-menu .nav-menu-list .list-content ul li {
+  position: relative;
+  float: left;
+  width: 180px;
+  height: calc(100% - 46px);
+  padding: 35px 12px 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+#header .nav-menu .nav-menu-list .list-content ul li .price {
+  color: #ff6700;
+}
+
+#header .nav-menu .nav-menu-list .list-content ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#header .nav-menu .nav-menu-list .list-content ul .line {
+  float: left;
+  width: 2px;
+  padding: 0;
+  position: relative;
+  top: 48px;
+  height: 100px;
+  background: #b0b0b0;
+}
+
 .header {
   width: 1240px;
   height: 98px;
