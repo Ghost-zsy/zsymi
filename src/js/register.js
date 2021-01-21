@@ -53,6 +53,7 @@ class Register{
                 }else{
                     cookie_obj[user] = pd;
                     gj.setCookie("zsy",JSON.stringify(cookie_obj),{expires : 3,path : "/"});
+                    alert("注册成功");
                     location.href = "./login.html";
                 }
             }else{

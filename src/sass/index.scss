@@ -12,46 +12,129 @@ body{
         .top-slideshow{
             @include size(100%,460px);
             background: gray;
+            display: flex;
+            position: relative;
+            .slideshow-menu{
+                width: 234px;
+                height: calc(100% - 40px);
+                position: absolute;
+                left : 0;
+                top: 0;
+                background: rgba(0,0,0,.1);
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                font-size: 14px;
+                padding: 20px 0px;
+                a{
+                    display: block;
+                    overflow: hidden;
+                    color: #fff;
+                    flex: 1;
+                    line-height: 46px;
+                    padding-left: 20px;
+                    span{
+                        float: right;
+                        margin-right: 20px;
+                    }
+                }
+                a:hover{
+                    background: #ff6700;
+                }
+            }
+            .slideshow-list{
+                height: 100%;
+                position: absolute;
+                left: 234px;
+                top: 0;
+                background:white;
+                display: flex;
+                opacity: 0;
+                overflow: hidden;
+                z-index: 3;
+                ul{
+                    width: 252px;
+                    height: 100%;
+                    float: left;
+                    display: flex;
+                    flex-direction: column;
+                    li{
+                        flex: 1;
+                        line-height: 92px;
+                        padding-left: 20px;
+                        a{
+                            color: black;
+                            img{
+                                vertical-align: middle;
+                            }
+                            span{
+                                
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                }
+            }
             #box{
                 @include size(100%,100%);
                 position: relative;
                 // overflow: hidden;
-            }
-            #box img{
-                display: block;
-                @include size(100%,100%);
-            }
-            #top-ul{
-                position: absolute;
-                @include size(100%,100%);
-                list-style: none;
-                li{
-                    position: absolute;
-                    left: 0;
-                    top: 0;
+                img{
+                    display: block;
                     @include size(100%,100%);
-                    opacity: 0;
                 }
-                .li1{
-                    opacity: 1;
+                #top-ul{
+                    position: absolute;
+                    @include size(100%,100%);
+                    list-style: none;
+                    li{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        @include size(100%,100%);
+                        opacity: 0;
+                    }
+                    .li1{
+                        opacity: 1;
+                    }
                 }
-            }
-            span{
-                position: absolute;
-                font-size: 50px;
-                z-index: 2;
-                color: gray;
-                cursor: pointer;
-                top : 50%;
-            }
-            span:hover{
-                color: white;
-            }
-            #left{
-                left: 0;
-            }
-            #right{
-                right: 0;
+                ol{
+                    // width: 100px;
+                    // height: 20px;
+                    position: absolute;
+                    right: 20px;
+                    bottom: 20px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-shrink: 1;
+                    li{
+                        width: 10px;
+                        height:10px;
+                        border-radius: 50%;
+                        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.9);
+                        cursor: pointer;
+                        margin: 0 5px;
+                    }
+                }
+                span{
+                    position: absolute;
+                    font-size: 50px;
+                    z-index: 2;
+                    color: gray;
+                    cursor: pointer;
+                    top : 50%;
+                }
+                span:hover{
+                    color: white;
+                    background: rgba(0,0,0,.5);
+                }
+                #left{
+                    left: 234px;
+                }
+                #right{
+                    right: 0;
+                }
             }
         }
     }

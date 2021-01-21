@@ -17,7 +17,7 @@ class Detail{
                     "border-top" : "1px solid #b0b0b0"
                 })
                 // console.log(that.nav_menu_list);
-                $.get("../js/data.json",(data)=>{
+                $.get("../json/data.json",(data)=>{
                     let str =`<a href="#">
                     <img src=".${data[i].src}" alt="${data[i].alt}">
                     <p>${data[i].name}</p>

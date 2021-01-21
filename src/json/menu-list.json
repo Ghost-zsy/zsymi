@@ -1,0 +1,42 @@
+[
+    {
+        "src" :"./img/mi11.webp",
+        "name" : "小米11"
+    },
+    {
+        "src" :"./img/mitv.webp",
+        "name" : "小米透明电视"
+    },
+    {
+        "src" :"./img/migame.webp",
+        "name" : "小米笔记本"
+    },
+    {
+        "src" :"./img/mihome.webp",
+        "name" : "小米冰箱"
+    },
+    {
+        "src" :"./img/mi-bike.webp",
+        "name" : "小米自行车"
+    },
+    {
+        "src" :"./img/mismart.jpg",
+        "name" : "打印机"
+    },
+    {
+        "src" :"./img/mipower.webp",
+        "name" : "移动电源"
+    },
+    {
+        "src" :"./img/mi-health.jpg",
+        "name" : "儿童书包"
+    },
+    {
+        "src" :"./img/mi-music.jpg",
+        "name" : "小米音箱"
+    },
+    {
+        "src" :"./img/mi-bag.webp",
+        "name" : "米兔"
+    }
+]

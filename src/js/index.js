@@ -1,7 +1,10 @@
 class Index{
     constructor(){
+        //导航栏
         this.con_list = $(".nav-item");
+        //下拉列表里面的元素
         this.commodity = $(".commodity");
+        //下拉列表
         this.nav_menu_list = $(".nav-menu-list");
         this.add();
         // 获取大盒子
@@ -12,12 +15,14 @@ class Index{
         this.o_img = this.o_ul.children;
         // 图片的数量
         this.o_num = this.o_img.length;
-        // 计算ul的宽
-        // this.o_ul.style.width = this.o_num * this.o_img[0].offsetWidth + "px";
         // 获取左按钮
-        this.L_btn = document.querySelector("#left");
+        this.L_btn = $("#left");
         // 获取右按钮;
-        this.R_btn = document.querySelector("#right");
+        this.R_btn = $("#right");
+        //获取小图标盒子
+        this.o_ol = $(".small-btn");
+        //获取小圆点
+        this.o_ol_li = $(".small-btn").get(0).children;
         // 设置一个当前下标
         this.cur_index = 0;
         // 设置计时器的名字
@@ -26,10 +31,18 @@ class Index{
         this.addEvent();
         // 自动轮播
         this.auto()
+
+        //轮播图左边菜单
+        this.slideshow_menu = $(".slideshow-menu a")
+        console.log(this.slideshow_menu);
+        //轮播图右边列表
+        this.slideshow_list = $(".slideshow-list")
+        // console.log(this.slideshow_list);
+        this.add2();
     }
     add(){
         let that = this;
-        let i = document.createElement("div");
+        // let i = document.createElement("div");
         for(let i = 0 ; i < 7 ; i ++){
             this.con_list.get(i).onmouseenter = function(){
                 that.nav_menu_list.css({
@@ -37,7 +50,7 @@ class Index{
                     "border-top" : "1px solid #b0b0b0"
                 })
                 // console.log(that.nav_menu_list);
-                $.get("./js/data.json",(data)=>{
+                $.get("./json/data.json",(data)=>{
                     let str =`<a href="#">
                     <img src="${data[i].src}" alt="${data[i].alt}">
                     <p>${data[i].name}</p>
@@ -71,44 +84,54 @@ class Index{
         })
     }
     addEvent(){
+        let that = this;
         // 设置左按钮点击事件
-        this.L_btn.onclick = function(){
-            this.cur_index --;
-            if(this.cur_index == -1){
-                this.cur_index = this.o_num - 1;
+        this.L_btn.click(()=>{
+            that.cur_index --;
+            console.log("下标" + that.cur_index)
+            if(that.cur_index == -1){
+                that.cur_index = that.o_num - 1;
             }
-            // 轮播
-            this.lb()
-        }.bind(this);
-        this.L_btn.onmouseenter = function(){
-            this.style.background = "rgba(0,0,0,.5)"
-        }
-        this.L_btn.onmouseleave= function(){
-            this.style.background = 0;
-        }
+            that.lb()
+        })
         // 设置右按钮点击事件
-        this.R_btn.onclick = function(){
-            this.cur_index ++;
-            if(this.cur_index == this.o_num){
-                this.cur_index = 0;
+        this.R_btn.click(()=>{
+            that.cur_index ++;
+            console.log("下标" + that.cur_index)
+            if(that.cur_index == that.o_num){
+                that.cur_index = 0;
             }
-            // 轮播
-            this.lb()
-        }.bind(this);
-        this.R_btn.onmouseenter = function(){
-            this.style.background = "rgba(0,0,0,.5)"
+            that.lb()
+        })
+        for(let i = 0 ; i < this.o_num;i ++){
+            $("<li>").appendTo(this.o_ol);
+            this.o_ol_li[i].onmouseenter = function(){
+                this.style.background = "rgba(224, 223, 223, 0.9)";
+            }
+            this.o_ol_li[i].onmouseleave = function(){
+                this.style.background = "rgba(0,0,0,.4)";
+                if(that.cur_index == i){
+                    this.style.background = "rgba(224, 223, 223, 0.9)";
+                }
+            }
         }
-        this.R_btn.onmouseleave= function(){
-            this.style.background = 0;
+        this.o_ol_li[0].style.background = "rgba(224, 223, 223, 0.9)";
+
+        for(let j = 0 ; j < this.o_num ; j ++){
+            this.o_ol_li[j].onclick = function(){
+                console.log(j);
+                that.cur_index = j;
+                that.lb();
+            }
         }
     }
     lb(){
         for(let i = 0 ; i < this.o_num ; i ++){
-            // this.o_img[i].style.opacity = 0;
             sport(this.o_img[i],{opacity : 0})
+            this.o_ol_li[i].style.background = "rgba(0,0,0,.4)";
         }
-        // this.o_img[this.cur_index].style.opacity = 1;
         sport(this.o_img[this.cur_index],{opacity : 100})
+        this.o_ol_li[this.cur_index].style.background = "rgba(224, 223, 223, 0.9)";
     }
     // 自动轮播
     auto(){
@@ -126,9 +149,159 @@ class Index{
             this.o_box.onmouseout = function(){
                 that.auto();
             }
-        },1800)
+        },3000)
     }
-
+    add2(){
+        let that = this;
+        for(let i = 0 ; i < 10 ; i ++){
+            this.slideshow_menu.get(i).onmouseenter = function(){
+                $.get("./json/menu-list.json",(data)=>{
+                    // console.log(data);
+                    let str = `
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="${data[i].src}" alt="">
+                                <span>${data[i].name}</span>
+                            </a>
+                        </li>
+                    </ul>
+                        `;
+                    that.slideshow_list.html(str);
+                })
+                that.slideshow_list.css("opacity",1);
+            }
+            this.slideshow_menu.get(i).onmouseleave = function(){
+                that.slideshow_list.css("opacity",0);
+            }
+        }
+        that.slideshow_list.mouseenter(function(){
+            $(this).css("opacity",1);
+        })
+        that.slideshow_list.mouseleave(function(){
+            $(this).css("opacity",0);
+        })
+    }
 }
 window.onload = function(){
     new Index();

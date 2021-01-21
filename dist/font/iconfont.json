@@ -1,0 +1,93 @@
+{
+  "id": "2330357",
+  "name": "xiaomi",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "165314",
+      "name": "维修扳手",
+      "font_class": "banshou",
+      "unicode": "e715",
+      "unicode_decimal": 59157
+    },
+    {
+      "icon_id": "689236",
+      "name": "服务 耳机 2",
+      "font_class": "erji",
+      "unicode": "e7e0",
+      "unicode_decimal": 59360
+    },
+    {
+      "icon_id": "703973",
+      "name": "话费充值",
+      "font_class": "huafeichongzhi",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "720960",
+      "name": "购物车",
+      "font_class": "shop",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "4810820",
+      "name": "f",
+      "font_class": "f",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "5521923",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "7653317",
+      "name": "以旧换新",
+      "font_class": "yijiuhuanxin",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "9557789",
+      "name": "个人中心",
+      "font_class": "gerenzhongxin",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "11749375",
+      "name": "时钟",
+      "font_class": "shizhong",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "13543865",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "18258607",
+      "name": "右按钮",
+      "font_class": "youanniu",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "18541640",
+      "name": "icon_企业信息enterprise",
+      "font_class": "qyxx",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    }
+  ]
+}

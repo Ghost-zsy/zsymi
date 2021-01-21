@@ -24,9 +24,9 @@ function CopyIndex(){
 function fnCss(){
    return src("./src/sass/*.scss")
     .pipe(sass({outputStyle: 'expanded'}))
-    // .pipe(cssnano())
+    .pipe(cssnano())
     .pipe(rename({suffix : ".min"}))
-    .pipe(dest("./src/css"))
+    .pipe(dest("./dist/css"))
 }
 function fnJS(){
     return src("./src/js/*.js")
@@ -35,9 +35,13 @@ function fnJS(){
     }))
     .pipe(uglify())
     .pipe(rename({suffix : ".min"}))
-    .pipe(dest("./dist/js"))
+    .pipe(dest("./src/js1"))
 }
-
+//json文件
+function fnJson(){
+    return src("./src/json/*.json")
+    .pipe(dest("./dist/json"))
+}
 //压缩子页
 function fnPage(){
     return src("./src/page/*.html")
@@ -51,12 +55,23 @@ function fnImg(){
     .pipe(imagemin())
     .pipe(dest("./dist/img"))
 }
+
+function fnFont(){
+    return src("./src/font/*")
+    .pipe(dest("./dist/font"));
+}
+function fnJS1(){
+    return src("./src/js1/*")
+    .pipe(dest("./dist/js1"));
+}
 function fnWatch(){
     watch("./src/index.html",CopyIndex)
     watch("./src/sass/*.scss",fnCss)
     watch("./src/js/*.js",fnJS)
     watch("./src/page/*.html",fnPage)
     watch("./src/img/*",fnImg)
+    watch("./src/font/*",fnFont)
+    watch("./src/js1/*",fnJS1)
 }
 //导出模块
 exports.test = fnTest;
@@ -64,5 +79,8 @@ exports.index = CopyIndex;
 exports.css = fnCss;
 exports.js = fnJS;
 exports.page = fnPage;
+exports.json = fnJson;
 exports.img = fnImg;
+exports.font = fnFont;
+exports.js1 = fnJS1;
 exports.default = fnWatch;
