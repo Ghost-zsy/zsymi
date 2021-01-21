@@ -26,7 +26,7 @@ function fnCss(){
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(cssnano())
     .pipe(rename({suffix : ".min"}))
-    .pipe(dest("./dist/css"))
+    .pipe(dest("./src/css"))
 }
 function fnJS(){
     return src("./src/js/*.js")
@@ -37,6 +37,7 @@ function fnJS(){
     .pipe(rename({suffix : ".min"}))
     .pipe(dest("./src/js1"))
 }
+
 //json文件
 function fnJson(){
     return src("./src/json/*.json")
@@ -64,6 +65,10 @@ function fnJS1(){
     return src("./src/js1/*")
     .pipe(dest("./dist/js1"));
 }
+function fnCss1(){
+    return src("./src/css/*")
+    .pipe(dest("./dist/css"));
+}
 function fnWatch(){
     watch("./src/index.html",CopyIndex)
     watch("./src/sass/*.scss",fnCss)
@@ -72,6 +77,7 @@ function fnWatch(){
     watch("./src/img/*",fnImg)
     watch("./src/font/*",fnFont)
     watch("./src/js1/*",fnJS1)
+    watch("./src/css/*",fnCss1)
 }
 //导出模块
 exports.test = fnTest;
@@ -83,4 +89,5 @@ exports.json = fnJson;
 exports.img = fnImg;
 exports.font = fnFont;
 exports.js1 = fnJS1;
+exports.css1 = fnCss1;
 exports.default = fnWatch;

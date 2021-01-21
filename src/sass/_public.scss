@@ -131,7 +131,7 @@ img{
             .cart-menu{
                 position: absolute;
                 @include size(316px,0px);
-                background: blue;
+                background: white;
                 left: -195px;
                 top: 40px;
                 transition: all 1s;
@@ -294,6 +294,11 @@ img{
                     }
                     span{
                         position: absolute;
+                        // @include size(50px,50px);
+                        // left: 0;
+                        // top: 0;
+                        // right: 0;
+                        // bottom: 0;
                         left: 37%;
                         top: 35%;
                         margin: auto;

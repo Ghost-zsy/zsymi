@@ -34,11 +34,30 @@ class Index{
 
         //轮播图左边菜单
         this.slideshow_menu = $(".slideshow-menu a")
-        console.log(this.slideshow_menu);
+        // console.log(this.slideshow_menu);
         //轮播图右边列表
         this.slideshow_list = $(".slideshow-list")
         // console.log(this.slideshow_list);
         this.add2();
+
+        //关键字随机
+        this.search_txt = $(".search-txt");
+        this.txt_arr = ["小米1","红米k30至尊纪念碑","滚筒洗衣机","第一次的项目","为发烧而生"]
+        // console.log(this.search_txt.attr("placeholder"))
+        this.randomKeyWord();
+    }
+    randomKeyWord(){
+        let that = this;
+        setInterval(() => {
+            that.search_txt.attr("placeholder",`${that.txt_arr[that.randomNum(0,that.txt_arr.length - 1)]}`)
+            // console.log(this.randomNum(0,that.txt_arr.length - 1))
+        }, 3000);
+    }
+    randomNum(min,max){
+        if(min > max){
+            [min,max] = [max,min];
+        }
+        return Math.floor(Math.random() * (max - min + 1) + min)
     }
     add(){
         let that = this;
@@ -88,7 +107,7 @@ class Index{
         // 设置左按钮点击事件
         this.L_btn.click(()=>{
             that.cur_index --;
-            console.log("下标" + that.cur_index)
+            // console.log("下标" + that.cur_index)
             if(that.cur_index == -1){
                 that.cur_index = that.o_num - 1;
             }
@@ -97,7 +116,7 @@ class Index{
         // 设置右按钮点击事件
         this.R_btn.click(()=>{
             that.cur_index ++;
-            console.log("下标" + that.cur_index)
+            // console.log("下标" + that.cur_index)
             if(that.cur_index == that.o_num){
                 that.cur_index = 0;
             }
@@ -119,7 +138,7 @@ class Index{
 
         for(let j = 0 ; j < this.o_num ; j ++){
             this.o_ol_li[j].onclick = function(){
-                console.log(j);
+                // console.log(j);
                 that.cur_index = j;
                 that.lb();
             }
@@ -190,116 +209,27 @@ class Index{
                             </a>
                         </li>
                     </ul>
-                    <ul>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="${data[i].src}" alt="">
-                                <span>${data[i].name}</span>
-                            </a>
-                        </li>
-                    </ul>
                         `;
-                    that.slideshow_list.html(str);
+                    if(i < 2 || i === 4){
+                        that.slideshow_list.html(str+str+str+str);
+                    }else if(i == 6){
+                        that.slideshow_list.html(str+str);
+                    }else{
+                        that.slideshow_list.html(str+str+str);
+                    }
+                    
                 })
-                that.slideshow_list.css("opacity",1);
+                that.slideshow_list.css("visibility","visible");
             }
             this.slideshow_menu.get(i).onmouseleave = function(){
-                that.slideshow_list.css("opacity",0);
+                that.slideshow_list.css("visibility","hidden");
             }
         }
         that.slideshow_list.mouseenter(function(){
-            $(this).css("opacity",1);
+            $(this).css("visibility","visible");
         })
         that.slideshow_list.mouseleave(function(){
-            $(this).css("opacity",0);
+            $(this).css("visibility","hidden");
         })
     }
 }
